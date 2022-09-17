@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
@@ -11,8 +12,21 @@ public class FinishLine : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player" && !controller2D.isDead)
         {
-            print("You finished the level");
-            print("You died " + gh.deaths + " times");
+            loadNextLevel();
+        }
+    }
+
+    private void loadNextLevel()
+    {
+        int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextLevel < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextLevel);
+        }
+        else
+        {
+            print("You completed the game");
         }
     }
 }

@@ -12,8 +12,7 @@ public class MoveTile : MonoBehaviour
         {
             if (fr.coroutineAllowed)
             {
-                print("enter");
-                StartCoroutine(fr.followTheRoute(0));
+                StartCoroutine(fr.followTheRoute(fr.routeToGo));
             }
         }
     }
@@ -24,8 +23,7 @@ public class MoveTile : MonoBehaviour
         {
             if (fr.coroutineAllowed)
             {
-                print("exit");
-                StartCoroutine(fr.followTheRoute(1));
+                StartCoroutine(fr.followTheRoute(fr.routeToGo));
             }
         }
     }

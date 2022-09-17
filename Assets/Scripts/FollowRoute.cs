@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowRoute : MonoBehaviour
 {
     [SerializeField] Transform[] routes;
-    private int routesLeft;
+    internal int routeToGo;
     private float timeCounter;
     private Vector2 tilePosition;
     private float moveSpeed;
@@ -13,7 +13,7 @@ public class FollowRoute : MonoBehaviour
     
     void Start()
     {
-        routesLeft = 0;
+        routeToGo = 0;
         timeCounter = 0f;
         moveSpeed = 0.65f;
         coroutineAllowed = true;
@@ -43,11 +43,11 @@ public class FollowRoute : MonoBehaviour
 
         timeCounter = 0f;
 
-        routesLeft++;
+        routeToGo++;
 
-        if(routesLeft > routes.Length - 1)
+        if(routeToGo > routes.Length - 1)
         {
-            routesLeft = 0;
+            routeToGo = 0;
         }
 
         coroutineAllowed = true;

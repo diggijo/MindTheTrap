@@ -6,6 +6,7 @@ public class DropSpikes : MonoBehaviour
 {
     [SerializeField] private float range;
     [SerializeField] Rigidbody2D rb;
+    private const float DROP_SPEED = 6f;
 
     private void Update()
     {
@@ -17,13 +18,13 @@ public class DropSpikes : MonoBehaviour
 
         RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, range);
 
-        Debug.DrawRay(transform.position, Vector2.down * range, Color.red);
+        //Debug.DrawRay(transform.position, Vector2.down * range, Color.red);
 
         if (hitDown.transform != null)
         {
             if (hitDown.transform.tag == "Player")
             {
-                rb.gravityScale = 1.5f;
+                rb.gravityScale = DROP_SPEED;
             }
         }
     }

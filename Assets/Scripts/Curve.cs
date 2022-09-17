@@ -7,7 +7,7 @@ public class Curve : MonoBehaviour
     [SerializeField] private Transform[] controlPoints;
     private Vector2 gizmosPosition;
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         for(float i=0; i<=1; i+=.1f)
         {
@@ -24,5 +24,5 @@ public class Curve : MonoBehaviour
 
         Gizmos.DrawLine(new Vector2(controlPoints[2].position.x, controlPoints[2].position.y),
             new Vector2(controlPoints[3].position.x, controlPoints[3].position.y));
-    }
+    }*/
 }
